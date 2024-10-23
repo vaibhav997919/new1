@@ -1,61 +1,122 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Ala - 1
-        </title>
-         <style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Grid Example</title>
+    <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 18px;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 10px; /* Reduced space between items */
+            padding: 10px; /* Reduced padding */
+            max-width: 900px; /* Smaller width to make the grid more compact */
+            margin: auto;
+        }
+
+        .grid-item {
+            background-color: #96c9ff;
+            color: #004080; /* Changed text color to blue */
+            text-align: center;
+            padding: 10px; /* Reduced padding */
+            border: 1px solid #ddd;
+            border-radius: 6px; /* Slightly smaller radius */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+            transition: transform 0.2s;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        /* Markdown-like styling */
+        .markdown {
             text-align: left;
+            margin: 0;
         }
-        th, td {
-            padding: 12px;
-            border: 3px solid #565656;
+
+        .markdown h2 {
+            font-size: 1.2em; /* Reduced font size */
+            margin: 5px 0;
         }
-        a {
-            color: blue;
+
+        .markdown p {
+            margin: 5px 0;
+            font-size: 0.9em; /* Reduced font size for paragraphs */
+        }
+
+        /* Merged items */
+        .item-merge {
+            grid-column: span 3; /* Span all columns */
+        }
+
+        .green-bg {
+            grid-column: span 3; /* Span all columns */
+            background-color: #96c9ff; /* Background color */
+            padding: 20px; /* Reduced padding */
+            text-align: center;
+            border-radius: 10px;
+        }
+        img {
+            width: auto;
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .btn {
+            display: block;
+            padding: 8px; /* Reduced button padding */
+            margin: 8px 0;
+            background-color: #96c9ff;
+            color: #004080; /* Changed button text color to blue */
             text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .btn:hover {
+            background-color: #96c9ff;
         }
-             </style>
-    </head>
-    <body>
-        <table>
-        <tr>
-            <th colspan="6" >Subject Name : WEB DESIGNING</th>
-        </tr>
-        <tr>
-            <th colspan="6" >Subject Code : BETCE13304</th>
-        </tr>
-        <tr>
-            <th colspan="6" >Student Name : VAIBHAV S. MAKWANA</th>
-        </tr>
-        <tr>
-            <th colspan="6" >Enrollment No. : 240905091010</th>
-        </tr>
-        <tr>
-            <th colspan="6" >Task - 1to3 Links</th>
-        </tr>
-        <tr>
-            <th colspan="2">
-                <a href="Task_1.html">TASK 1</a>  
-            </th>
-            <th colspan="2">
-                <a href="Task_2.html">TASK 2</a>  
-            </th>
-            <th colspan="2">
-                <a href="Task_3.html">TASK 3</a>
-            </th>
-        </tr>
-    </table> 
-    </body>
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item markdown item-merge">
+            <h2>Subject Name: <span style="color: #808181;">WEB DESIGNING</span></h2>
+        </div>
+        <div class="grid-item markdown item-merge">
+            <h2>Subject Code: <span style="color: #808181;">BETCE13304</span></h2>
+        </div>
+        <div class="grid-item markdown item-merge">
+            <h2>Student Name:<span style="color: #808181;">VAIBHAV S. MAKWANA</span></h2>
+        </div>
+        <div class="grid-item markdown item-merge">
+            <h2>Enrollment No.: <span style="color: #808181;">240905091010</span></h2>
+        </div>
+        <div class="grid-item markdown item-merge">
+            <h2>Task - &nbsp;<span style="color: #808181;">1to3</span>&nbsp; Links</h2>
+        </div>
+        <div class="grid-item markdown">
+            <a href="Task_1.html" target="_blank" class="btn"><h2>Tsak &nbsp;<span style="color:#808181;">1</span></h2></a>
+        </div>
+        <div class="grid-item markdown">
+            <a href="Task_2.html" target="_blank" class="btn"><h2>Task &nbsp;<span style="color:#808181;">2</span></h2></a>
+        </div>
+        <div class="grid-item markdown">
+            <a href="Task_3.html" target="_blank" class="btn"><h2>Task &nbsp;<span style="color:#808181;">3</span></h2></a>
+        </div>
+        <div class="grid-item markdown item-merge">
+            <h2>University Name : <span style="color: #808181;">Gyanmanjari Innovative University</span></h2>
+        </div>
+        <div class="grid-item green-bg img">
+            <img src="https://gmiu.edu.in/gmiu/website_assets/images/gmiulogo.png" alt="University Logo" >
+        </div>
+    </div>
+</body>
 </html>
