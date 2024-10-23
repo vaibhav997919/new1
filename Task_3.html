@@ -1,67 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>HADI | ALA - 2</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-            }
-            html,
-            body {
-                height: 100%;
-                width: 100%;
-            }
-            body {
-                background: #333;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .cursor {
-                background: #fff;
-                height: 20px;
-                width: 20px;
-                border-radius: 50%;
-                position: absolute;
-                transform: translate(-50%, -50%);
-                transition: all 0.3s linear;
-                pointer-events: none;
-                mix-blend-mode: difference;
-            }
-            .heading {
-                font-size: 5rem;
-                font-family: sans-serif;
-                color: white;
-                text-transform: capitalize;
-                pointer-events: none;
-                transition: all 0.3s linear;
-                pointer-events: none;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="cursor"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Animation Example with CSS and JavaScript">
+    <title>Animation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+        }
 
-        <div class="heading">move the cursor</div>
+        /* Animated Box */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            position: relative;
+            transition: all 1s ease; /* Smooth transition */
+        }
 
-        <script>
-            const cursor = document.querySelector(".cursor");
-            const heading = document.querySelector(".heading");
-            const body = document.querySelector("body");
+        /* Keyframes for Animation */
+        @keyframes moveAndScale {
+            0% {
+                transform: translateX(0) scale(1);
+                background-color: #3498db; /* Corrected color code */
+            }
+            50% {
+                transform: translateX(200px) scale(1.5);
+                background-color: #e74c3c; /* Corrected color code */
+            }
+            100% {
+                transform: translateX(0) scale(1);
+                background-color: #2ecc71; /* Corrected color code */
+            }
+        }
 
-            body.addEventListener("mousemove", (e) => {
-                cursor.style.top = e.clientY + "px";
-                cursor.style.left = e.clientX + "px";
-            });
-            body.addEventListener("click", () => {
-                const randomColor =
-                    "#" + Math.floor(Math.random() * 16777215).toString(16);
-                cursor.style.background = randomColor;
-                heading.style.color = randomColor;
-            });
-        </script>
-    </body>
+        /* Buttons styling */
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #2ecc71; /* Corrected background color */
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #27ae60; /* Corrected background color */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS and JavaScript Animation Example</h1>
+    
+    <!-- Animated Box -->
+    <div class="box" id="animatedBox"></div>
+
+    <!-- Control Buttons -->
+    <div>
+        <button onclick="startAnimation()">Start Animation</button>
+        <button onclick="stopAnimation()">Stop Animation</button>
+        <button onclick="resetAnimation()">Reset</button>
+    </div>
+
+    <script>
+        // JavaScript to control animation
+        let box = document.getElementById('animatedBox'); // Moved declaration to avoid repetition
+
+        // Function to start the animation
+        function startAnimation() {
+            box.style.animation = 'moveAndScale 3s infinite'; // Apply animation
+        }
+
+        // Function to stop the animation
+        function stopAnimation() {
+            box.style.animation = 'none'; // Remove animation by setting it to 'none'
+        }
+
+        // Function to reset the animation to its original state
+        function resetAnimation() {
+            box.style.animation = 'none'; // Stop any ongoing animation
+            box.style.transform = 'translateX(0) scale(1)'; // Reset position and scale
+            box.style.backgroundColor = '#3498db'; // Reset background color
+        }
+    </script>
+</body>
 </html>
